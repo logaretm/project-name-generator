@@ -31,7 +31,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "project-name-generator-ts",
+  "name": "@logaretm/project-name-generator",
   "author": "Abdelrahman Awad",
   "module": "dist/project-name-generator-ts.esm.js",
   "size-limit": [
