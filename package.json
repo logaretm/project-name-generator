@@ -1,8 +1,16 @@
 {
   "version": "1.0.1",
   "license": "MIT",
-  "main": "dist/index.js",
+  "type": "module",
+  "source": "src/index.ts",
   "typings": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/project-name-generator.cjs",
+    "default": "./dist/project-name-generator.esm.js"
+  },
+  "main": "./dist/project-name-generator.cjs",
+  "module": "./dist/project-name-generator.esm.js",
+  "unpkg": "./dist/project-name-generator.umd.js",
   "files": [
     "dist",
     "src"
@@ -11,13 +19,9 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "test": "jest"
   },
   "peerDependencies": {},
   "husky": {
@@ -33,23 +37,15 @@
   },
   "name": "@logharetm/project-name-generator",
   "author": "Abdelrahman Awad",
-  "module": "dist/project-name-generator-ts.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/project-name-generator-ts.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/project-name-generator-ts.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.1.0",
+    "@types/jest": "^29.2.4",
     "@types/lodash-es": "^4.17.6",
     "husky": "^8.0.2",
-    "size-limit": "^8.1.0",
-    "tsdx": "^0.14.1",
+    "jest": "^29.3.1",
+    "lodash": "^4.17.21",
+    "microbundle": "^0.15.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4"
   },
